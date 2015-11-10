@@ -123,5 +123,26 @@ namespace Technoland.Web.Controllers
 
             return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest, ModelState.Values.First().ToString());
         }
+
+        public ActionResult ListAll() 
+        {
+            if (this.HttpContext.Cache["ListAllSmartPhones"] == null)
+            {
+                var listOfSmartphones = this.Data.Smartphones.All()
+                .OrderByDescending(x => x.Votes.Count())
+                .Select(x => new SmartphoneViewModel
+                {
+                    Id = x.Id,
+                    Manufacturer = x.Manufacturer.Name,
+                    ImageUrl = x.ImageURL,
+                    Model = x.Model,
+                    Price = x.Price,
+                    Votes = x.Votes.Count(),
+                });
+                this.HttpContext.Cache.Add("ListAllSmartPhones", listOfSmartphones.ToList(), null, DateTime.Now.AddHours(1), TimeSpan.Zero, System.Web.Caching.CacheItemPriority.Default, null);
+            }
+
+            return View(this.HttpContext.Cache["ListAllSmartPhones"]);
+        }
     }
 }

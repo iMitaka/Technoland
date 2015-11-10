@@ -16,7 +16,7 @@
             <a class="btn btn-success center-block" href="#">Купи @Model.Price лв.</a>
         </div>
         <br />
-        <h4>Гласове:</h4>
+        <h4><strong>Гласове:</strong></h4>
         <div>
             <strong>Гласове:</strong> <div class="label label-primary"><span id="smartphones-votes">@Model.Votes</span></div>
             @if (User.Identity.IsAuthenticated && Model.UserCanVote)
@@ -25,7 +25,7 @@
             }
         </div>
         <br />
-        <h3>Коментари:</h3>
+        <h3><strong>Коментари:</strong></h3>
         <div id="Comments">
             @foreach (var comment in Model.Comments)
             {
