@@ -1,0 +1,31 @@
+﻿@model ICollection<Technoland.Web.Models.SmartphoneViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="well">
+    <h1 class="text-danger"><strong>ТОП 6 Най-популярни смартфони:</strong></h1>
+</div>
+
+<div class="row">
+    @for (int i = 0; i < Model.Count(); i++)
+    {
+        var smartphone = Model.ElementAt(i);
+        <div class="col-md-4 panel-primary">
+            <p><a href="@Url.Action("Details", "Laptops", new { smartphone.Id })"><img width="200" class="center-block" src="@smartphone.ImageUrl" /></a></p>
+            <h5 class="text-center"><strong>(@smartphone.Votes гласа)</strong></h5>
+            <hr />
+            <a href="@Url.Action("Details", "Laptops", new { smartphone.Id })"><h3 class="text-center">@smartphone.Manufacturer @smartphone.Model</h3></a>        
+            <p><a class="btn center-block btn-primary" href="@Url.Action("Details", "Laptops", new { smartphone.Id })">Цена: @smartphone.Price лв.</a></p>          
+        </div>
+
+        if (i > 0 && (i + 1) % 3 == 0)
+        {
+            @:</div>
+            @:<div class="row">
+        }
+    }
+</div>
+<br />
+<div>
+    <p><a class="btn center-block btn-warning" href="#">Виж още</a></p>
+</div>
