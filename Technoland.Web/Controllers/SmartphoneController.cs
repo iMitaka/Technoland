@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using System.Net.Http;
 using Technoland.Web.Models;
+using Technoland.Models;
+using LaptopSystem.Web.Models;
 
 namespace Technoland.Web.Controllers
 {
@@ -75,6 +77,51 @@ namespace Technoland.Web.Controllers
                 }).FirstOrDefault();
 
             return View(viewModel);
+        }
+        public ActionResult Vote(int id)
+        {
+            var userId = User.Identity.GetUserId();
+
+            var canVote = !this.Data.Votes.All().Any(x => x.SmartphoneId == id && x.VotedById == userId);
+
+            if (canVote)
+            {
+                this.Data.Smartphones.GetById(id).Votes.Add(new Vote
+                {
+                    SmartphoneId = id,
+                    VotedById = userId
+                });
+
+                this.Data.SaveChanges();
+            }
+
+            var votes = this.Data.Smartphones.GetById(id).Votes.Count();
+
+            return Content(votes.ToString());
+        }
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult PostComment(SubmitCommentModel commentModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var username = this.User.Identity.GetUserName();
+                var userId = this.User.Identity.GetUserId();
+
+                this.Data.Comments.Add(new Comment()
+                {
+                    AuthorId = userId,
+                    Content = commentModel.Comment,
+                    SmartphoneId = commentModel.SmartphoneId,
+                });
+
+                this.Data.SaveChanges();
+
+                var viewModel = new CommentViewModel { AuthorUsername = username, Content = commentModel.Comment };
+                return PartialView("_CommentPartial", viewModel);
+            }
+
+            return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest, ModelState.Values.First().ToString());
         }
     }
 }

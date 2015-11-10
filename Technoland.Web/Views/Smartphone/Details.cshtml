@@ -1,21 +1,11 @@
 ﻿@model Technoland.Web.Models.SmartphoneDetailsViewModel
 @section styles
     {
-    <style>
-        .myTableHeads {
-            width: 200px;
-        }
-
-        .myTableContent {
-            width: 300px;
-        }
-    </style>
+    <link href="~/Content/SmartphoneDetails.css" rel="stylesheet" />
 }
 <h1 class="alert alert-dismissible alert-info"><strong>@Model.Manufacturer @Model.Model</strong></h1>
 <ol class="breadcrumb">
     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    @*<li><a href="#">Library</a></li>
-        <li class="active">Data</li>*@
 </ol>
 <div class="row">
     <div class="col-lg-5">
@@ -25,6 +15,32 @@
         <div class="center-block">
             <a class="btn btn-success center-block" href="#">Купи @Model.Price лв.</a>
         </div>
+        <br />
+        <div>
+            Votes: <span id="smartphones-votes">@Model.Votes</span>
+            @if (User.Identity.IsAuthenticated && Model.UserCanVote)
+            {
+                @Ajax.ActionLink("Vote", "Vote", "Smartphone", new { id = Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "smartphones-votes", HttpMethod = "Post", OnSuccess = "hideVoteButton" }, new { id = "vote-button", @class = "btn" })
+            }
+        </div>
+        <br />
+        <div id="Comments">
+            @foreach (var comment in Model.Comments)
+            {
+                @Html.Partial("_CommentPartial", comment)
+            }
+        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            using (Ajax.BeginForm("PostComment", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.InsertAfter, UpdateTargetId = "Comments", OnFailure = "commentPostFailure" }))
+            {
+                @Html.Hidden("SmartphoneId", Model.Id)
+                @Html.TextArea("comment")
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Submit comment" />
+            }
+        }
+
     </div>
     <div class="col-lg-7">
         <table class="table table-striped table-hover">
@@ -262,3 +278,15 @@
         </table>
     </div>
 </div>
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script>
+        function commentPostFailure() {
+            alert("Error");
+        }
+
+        function hideVoteButton() {
+            $("#vote-button").hide();
+        }
+    </script>
+}
