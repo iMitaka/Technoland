@@ -10,6 +10,7 @@ namespace LaptopSystem.Web.Models
     public class SubmitCommentModel
     {
         [Required]
+        [ShouldNotContainEmail]
         public string Comment { get; set; }
 
         [Required]
