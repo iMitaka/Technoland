@@ -9,7 +9,10 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-
+ul
+{
+    list-style-type: none;
+}
 a:hover {
     text-decoration: none;
 }
