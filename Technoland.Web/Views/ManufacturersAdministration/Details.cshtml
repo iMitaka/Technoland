@@ -1,0 +1,25 @@
+﻿@model Technoland.Models.Manufacturer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детайли за производител</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Промени", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Назад към списък", "Index")
+</p>

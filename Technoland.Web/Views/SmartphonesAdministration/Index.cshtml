@@ -1,0 +1,189 @@
+﻿@model IEnumerable<Technoland.Models.Smartphone>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Смартфони</h2>
+
+<div class="alert alert-dismissible alert-success">
+    @Html.ActionLink("Добави нов", "Create")
+</div>
+<table class="table">
+    <tr class="info">
+        <th>
+            @Html.DisplayNameFor(model => model.Manufacturer.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.connection2G)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.connection3G)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.connection4G)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScreenType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScreenColors)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScreenSize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resolution)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScreenProtection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.internalMemory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.externalMomory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RAM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RAMMemoryType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CameraPixels)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CameraResolution)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SecondaryCameraPixels)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoFPS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoResolutionP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.USB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chipset)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Frequency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cores)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GPU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="active">
+        <td>
+            @Html.DisplayFor(modelItem => item.Manufacturer.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            <img width="70" src="@item.ImageURL" alt="@item.Model" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.connection2G)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.connection3G)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.connection4G)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScreenType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScreenColors)M
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScreenSize)"
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resolution)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScreenProtection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.internalMemory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.externalMomory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RAM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RAMMemoryType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CameraPixels)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CameraResolution)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SecondaryCameraPixels)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoFPS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoResolutionP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.USB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chipset)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Frequency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cores)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GPU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price) лв.
+        </td>
+        <td>
+            @Html.ActionLink("Промени", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Детайли", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Изтрий", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

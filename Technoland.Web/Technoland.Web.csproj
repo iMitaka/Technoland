@@ -163,7 +163,9 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\SmartphoneController.cs" />
+    <Compile Include="Controllers\ManufacturersAdministrationController.cs" />
+    <Compile Include="Controllers\SmartphonesAdministrationController.cs" />
+    <Compile Include="Controllers\SmartphonesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -247,9 +249,19 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Smartphone\Details.cshtml" />
     <Content Include="Views\Shared\_CommentPartial.cshtml" />
-    <Content Include="Views\Smartphone\ListAll.cshtml" />
+    <Content Include="Views\ManufacturersAdministration\Create.cshtml" />
+    <Content Include="Views\ManufacturersAdministration\Delete.cshtml" />
+    <Content Include="Views\ManufacturersAdministration\Details.cshtml" />
+    <Content Include="Views\ManufacturersAdministration\Edit.cshtml" />
+    <Content Include="Views\ManufacturersAdministration\Index.cshtml" />
+    <Content Include="Views\Smartphones\Details.cshtml" />
+    <Content Include="Views\Smartphones\ListAll.cshtml" />
+    <Content Include="Views\SmartphonesAdministration\Create.cshtml" />
+    <Content Include="Views\SmartphonesAdministration\Delete.cshtml" />
+    <Content Include="Views\SmartphonesAdministration\Details.cshtml" />
+    <Content Include="Views\SmartphonesAdministration\Edit.cshtml" />
+    <Content Include="Views\SmartphonesAdministration\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

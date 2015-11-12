@@ -1,0 +1,386 @@
+﻿@model Technoland.Models.Smartphone
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детайли за смартфон</h2>
+<div class="alert alert-dismissible alert-warning">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacturer.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manufacturer.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.connection2G)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.connection2G)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.connection3G)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.connection3G)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.connection4G)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.connection4G)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GPRS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GPRS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EDGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EDGE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HSDPA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HSDPA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HSUPA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HSUPA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SIMType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SIMType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScreenType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScreenType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScreenColors)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScreenColors)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScreenSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScreenSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resolution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resolution)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Multitouch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Multitouch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScreenProtection)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScreenProtection)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.internalMemory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.internalMemory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.externalMomory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.externalMomory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAMMemoryType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAMMemoryType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CameraPixels)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CameraPixels)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CameraResolution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CameraResolution)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondaryCameraPixels)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondaryCameraPixels)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VideoFPS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VideoFPS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VideoResolutionP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VideoResolutionP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.additionalCameraFunctions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.additionalCameraFunctions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StereoSound)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StereoSound)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chipset)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chipset)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Frequency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Frequency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cores)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cores)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GPU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GPU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GPSInformation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GPSInformation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Senzors)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Senzors)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MessagesInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessagesInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeffoultBrowser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeffoultBrowser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BattryType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BattryType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BatteryCappacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BatteryCappacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoursOfTalk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoursOfTalk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoursListenOfMusic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoursListenOfMusic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WLANInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WLANInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BluetoothInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BluetoothInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price) лв.
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <div class="alert alert-dismissible alert-info">
+        @Html.ActionLink("Промени", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Назад към списък", "Index")
+    </div>  
+</p>

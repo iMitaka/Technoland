@@ -11,7 +11,7 @@ using LaptopSystem.Web.Models;
 
 namespace Technoland.Web.Controllers
 {
-    public class SmartphoneController : BaseController
+    public class SmartphonesController : BaseController
     {
         // GET: Smartphone
         public ActionResult Details(int id)
@@ -32,7 +32,6 @@ namespace Technoland.Web.Controllers
                     UserCanVote = !x.Votes.Any(pesho => pesho.VotedById == userId),
                     Votes = x.Votes.Count(),
                     additionalCameraFunctions = x.additionalCameraFunctions,
-                    Audio35Jack = x.Audio35Jack,
                     GPRS = x.GPRS,
                     BatteryCappacity = x.BatteryCappacity,
                     HSDPA = x.HSDPA,
@@ -57,18 +56,16 @@ namespace Technoland.Web.Controllers
                     Cores = x.Cores,
                     EDGE = x.EDGE,
                     DeffoultBrowser = x.DeffoultBrowser,
-                    BatteryLiveWhenListeningMusic = x.BatteryLiveWhenListeningMusic,
+                    HoursListenOfMusic = x.HoursListenOfMusic,
                     BattryType = x.BattryType,
                     BluetoothInfo = x.BluetoothInfo,
                     GPU = x.GPU,
                     externalMomory = x.externalMomory,
                     internalMemory = x.internalMemory,
-                    Java = x.Java,
                     Frequency = x.Frequency,
                     HoursOfTalk = x.HoursOfTalk,
                     MessagesInfo = x.MessagesInfo,
                     Multitouch = x.Multitouch,
-                    Radio = x.Radio,
                     RAM = x.RAM,
                     RAMMemoryType = x.RAMMemoryType,
                     Resolution = x.Resolution,

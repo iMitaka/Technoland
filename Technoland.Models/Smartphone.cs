@@ -16,6 +16,7 @@ namespace Technoland.Models
             this.comments = new HashSet<Comment>();
         }
         public int Id { get; set; }
+        public int ManufacturerId { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }
         public string Model { get; set; }
         public string ImageURL { get; set; }
@@ -46,22 +47,19 @@ namespace Technoland.Models
         public string additionalCameraFunctions { get; set; }
         public string USB { get; set; }
         public bool StereoSound { get; set; }
-        public bool Audio35Jack { get; set; }
         public string OS { get; set; }
         public string Chipset { get; set; }
         public double Frequency { get; set; }
         public int Cores { get; set; }
         public string GPU { get; set; }
-        public bool Radio { get; set; }
         public string GPSInformation { get; set; }
         public string Senzors { get; set; }
-        public bool Java { get; set; }
         public string MessagesInfo { get; set; }
         public string DeffoultBrowser { get; set; }
         public string BattryType { get; set; }
         public int BatteryCappacity { get; set; }
         public int HoursOfTalk { get; set; }
-        public int BatteryLiveWhenListeningMusic { get; set; }
+        public int HoursListenOfMusic { get; set; }
         public string WLANInfo { get; set; }
         public string BluetoothInfo { get; set; }
         public decimal Price { get; set; }

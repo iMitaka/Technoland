@@ -3,15 +3,16 @@
     {
     <link href="~/Content/SmartphoneDetails.css" rel="stylesheet" />
 }
+
 <h1 class="alert alert-dismissible alert-info"><strong>@Model.Manufacturer @Model.Model</strong></h1>
 <ol class="breadcrumb">
-    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <li>@Html.ActionLink("Назад", "ListAll", "Smartphones")</li>
 </ol>
 <div class="row">
     <div class="col-lg-5">
         <div>
-            <img src="@Model.ImageURL" />
-        </div>
+            <img class="img-responsive" src="@Model.ImageURL" />
+        </div> 
         <div class="center-block">
             <a class="btn btn-success center-block" href="#">Купи @Model.Price лв.</a>
         </div>
@@ -21,7 +22,7 @@
             <strong>Гласове:</strong> <div class="label label-primary"><span id="smartphones-votes">@Model.Votes</span></div>
             @if (User.Identity.IsAuthenticated && Model.UserCanVote)
             {
-                @Ajax.ActionLink("Vote", "Vote", "Smartphone", new { id = Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "smartphones-votes", HttpMethod = "Post", OnSuccess = "hideVoteButton" }, new { id = "vote-button", @class = "btn label label-info" })
+                @Ajax.ActionLink("Vote", "Vote", "Smartphones", new { id = Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "smartphones-votes", HttpMethod = "Post", OnSuccess = "hideVoteButton" }, new { id = "vote-button", @class = "btn label label-info" })
             }
         </div>
         <br />
@@ -270,7 +271,7 @@
                             </tr>
                             <tr>
                                 <td class="myTableHeads">Слушане на музика</td>
-                                <td class="myTableContent">@Model.BatteryLiveWhenListeningMusic h</td>
+                                <td class="myTableContent">@Model.HoursListenOfMusic h</td>
                             </tr>
                         </table>
                     </td>

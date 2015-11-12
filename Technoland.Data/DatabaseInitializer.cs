@@ -31,11 +31,10 @@ namespace Technoland.Data
             for (int i = 0; i < 10; i++)
             {
                 Smartphone smartphone = new Smartphone();
-                smartphone.ImageURL = "http://www.telenor.bg/sites/default/files/styles/device-full/public/iPhone-6s-Plus-Space-Grey-web1_1.png?itok=coBXlLge";
+                smartphone.ImageURL = "http://www.telenor.bg/sites/default/files/styles/device-full/public/Samsung-Galaxy-S6-Edge-Plus-Black-combo-web.png";
                 smartphone.additionalCameraFunctions = "Автофокус, dual-LED светкавица, фокус с допир, разпознаване на лице/усмивка, HDR, панорама";
-                smartphone.Audio35Jack = true;
                 smartphone.BatteryCappacity = 2750;
-                smartphone.BatteryLiveWhenListeningMusic = 80;
+                smartphone.HoursListenOfMusic = 80;
                 smartphone.BattryType = "Li-Po";
                 smartphone.BluetoothInfo = "v4.2 с A2DP";
                 smartphone.CameraPixels = 13;
@@ -56,7 +55,6 @@ namespace Technoland.Data
                 smartphone.HSDPA = 42.2;
                 smartphone.HSUPA = 5.76;
                 smartphone.internalMemory = rand.Next(16, 32);
-                smartphone.Java = true;
                 smartphone.Manufacturer = sampleManufacturer;
                 smartphone.MessagesInfo = "iMessage, SMS (threaded view), MMS, Email, Push Email";
                 smartphone.Model = "Galaxy iSpace";
@@ -64,7 +62,6 @@ namespace Technoland.Data
                 smartphone.USB = "USB 2.0";
                 smartphone.OS = "Android 7+";
                 smartphone.Price = rand.Next(600, 3000);
-                smartphone.Radio = true;
                 smartphone.RAM = rand.Next(1, 8);
                 smartphone.RAMMemoryType = "GB";
                 smartphone.Resolution = "1080 x 1920";
