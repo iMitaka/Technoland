@@ -68,7 +68,7 @@ namespace Technoland.Data
 
 
 
-        public IRepository<ApplicationUser> Users
+        public IRepository<ApplicationUser> ApplicationUsers
         {
             get { return this.GetRepository<ApplicationUser>(); }
         }

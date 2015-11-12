@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technoland</title>
+    @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/kendo")
     @RenderSection("styles", required: false)
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -29,6 +31,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li>@Html.ActionLink("Производители", "Index", "ManufacturersAdministration")</li>
                                 <li>@Html.ActionLink("Смартфони", "Index", "SmartphonesAdministration")</li>
+                                <li>@Html.ActionLink("Коментари", "Index", "CommentsAdministration")</li>
                             </ul>
                         </li>
                     }                   
@@ -44,8 +47,8 @@
             <p>&copy; @DateTime.Now.Year - <strong>Technoland</strong>.</p>
         </footer>
     </div>
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/kendo")
     @RenderSection("scripts", required: false)
 </body>
 </html>

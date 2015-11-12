@@ -116,6 +116,14 @@ namespace Technoland.Web.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Smartphone smartphone = db.Smartphones.Find(id);
+            foreach (var vote in smartphone.Votes.ToList())
+            {
+                db.Votes.Remove(vote);
+            }
+            foreach (var comment in smartphone.Comments.ToList())
+            {
+                db.Comments.Remove(comment);
+            }
             db.Smartphones.Remove(smartphone);
             db.SaveChanges();
             return RedirectToAction("Index");

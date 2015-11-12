@@ -17,7 +17,7 @@ namespace Technoland.Data
 
         IRepository<Vote> Votes { get; }
 
-        IRepository<ApplicationUser> Users { get; }
+        IRepository<ApplicationUser> ApplicationUsers { get; }
 
         int SaveChanges();
     }

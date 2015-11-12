@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Technoland.Models.Comment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Коментари</h2>
+
+<table class="table">
+    <tr class="info">
+        <th>
+            @Html.DisplayNameFor(model => model.Author.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Smartphone.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="active">
+        <td>
+            @Html.DisplayFor(modelItem => item.Author.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Smartphone.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.ActionLink("Промени", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Детайли", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Изтрйи", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -122,6 +122,21 @@ namespace Technoland.Web.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Manufacturer manufacturer = db.Manufacturers.Find(id);
+            foreach (var smartphone in manufacturer.Smartphones.ToList())
+            {
+                foreach (var vote in smartphone.Votes.ToList())
+                {
+                    db.Votes.Remove(vote);
+                }
+
+                foreach (var comment in smartphone.Comments.ToList())
+                {
+                    db.Comments.Remove(comment);
+                }
+
+                db.Smartphones.Remove(smartphone);
+            }
+
             db.Manufacturers.Remove(manufacturer);
             db.SaveChanges();
             return RedirectToAction("Index");
