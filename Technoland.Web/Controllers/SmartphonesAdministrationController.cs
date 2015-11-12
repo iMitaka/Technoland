@@ -11,6 +11,7 @@ using Technoland.Models;
 
 namespace Technoland.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SmartphonesAdministrationController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

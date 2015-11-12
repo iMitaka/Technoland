@@ -5,6 +5,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Technoland.Data
 {
@@ -27,6 +28,9 @@ namespace Technoland.Data
 
             Manufacturer sampleManufacturer = new Manufacturer { Name = "Samsung" };
             ApplicationUser user = new ApplicationUser() { UserName = "TestUser", Email = "TestMail@test.com" };
+
+            context.Roles.Add(new IdentityRole { Name = "Admin" });
+            context.SaveChanges();
 
             for (int i = 0; i < 10; i++)
             {
