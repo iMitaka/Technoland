@@ -121,8 +121,11 @@ namespace Technoland.Web.Controllers
             return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest, ModelState.Values.First().ToString());
         }
 
-        public ActionResult ListAll()
+        public ActionResult ListAll(int? id)
         {
+            //int pageNumber = id.GetValueOrDefault(1);
+            //int pageSize = 6;
+
             var listOfSmartphones = this.Data.Smartphones.All()
                  .OrderByDescending(x => x.Votes.Count())
                  .Select(x => new SmartphoneViewModel
@@ -134,6 +137,9 @@ namespace Technoland.Web.Controllers
                      Price = x.Price,
                      Votes = x.Votes.Count(),
                  });
+
+            //var viewModel = listOfSmartphones.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+            //ViewBag.Pages = Math.Ceiling((double)listOfSmartphones.Count() / pageSize);
 
             return View(listOfSmartphones.ToList());
         }
@@ -165,9 +171,10 @@ namespace Technoland.Web.Controllers
                 Model = x.Model,
                 Manufacturer = x.Manufacturer.Name,
                 ImageUrl = x.ImageURL,
-                Price = x.Price
+                Price = x.Price,
+                Votes = x.Votes.Count(),
             });
-
+            
             return View("ListAll",endResult.ToList());
         }
         public JsonResult GetSmartphoneModelData(string text)
