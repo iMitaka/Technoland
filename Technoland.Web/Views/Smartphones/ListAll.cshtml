@@ -81,7 +81,7 @@
                 <div class="col-md-4 panel-primary">
                     <p><a href="@Url.Action("Details", "Smartphones", new { smartphone.Id })"><img width="200" class="center-block img-responsive" src="@smartphone.ImageUrl" /></a></p>
                     <h5 class="text-center"><strong>(@smartphone.Votes гласа)</strong></h5>
-                    @*<hr />*@
+                    <hr />
                     <a href="@Url.Action("Details", "Smartphones", new { smartphone.Id })"><h3 class="text-center">@smartphone.Manufacturer @smartphone.Model</h3></a>
                     <p><a class="btn center-block btn-primary" href="@Url.Action("Details", "Smartphones", new { smartphone.Id })">Цена: @smartphone.Price лв.</a></p>
                 </div>
