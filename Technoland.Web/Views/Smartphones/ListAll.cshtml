@@ -1,4 +1,14 @@
-﻿<div class="row">
+﻿@model  ICollection<Technoland.Web.Models.SmartphoneViewModel>
+@{
+    ViewBag.Title = "ListAll";
+}
+<style>
+    .img-responsive {
+        max-width: 70%;
+    }
+</style>
+
+<div class="row">
     <div class="col-lg-3">
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -56,21 +66,11 @@
                         <br />
                         <input type="submit" value="Търсене" class="btn btn-info center-block" />
                     </div>
-
                 }
             </div>
         </div>
     </div>
     <div class="col-lg-9">
-        @model  ICollection<Technoland.Web.Models.SmartphoneViewModel>
-        @{
-            ViewBag.Title = "ListAll";
-        }
-        <style>
-            .img-responsive {
-                max-width: 70%;
-            }
-        </style>
         <div class="alert alert-dismissible alert-info">
             <strong>Смартфони (@Model.Count())</strong>
         </div>

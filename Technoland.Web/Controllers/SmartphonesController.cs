@@ -29,7 +29,7 @@ namespace Technoland.Web.Controllers
                     ScreenSize = x.ScreenSize,
                     Price = x.Price,
                     Weight = x.Weight,
-                    UserCanVote = !x.Votes.Any(pesho => pesho.VotedById == userId),
+                    UserCanVote = !x.Votes.Any(vote => vote.VotedById == userId),
                     Votes = x.Votes.Count(),
                     additionalCameraFunctions = x.additionalCameraFunctions,
                     GPRS = x.GPRS,
@@ -141,7 +141,7 @@ namespace Technoland.Web.Controllers
             //var viewModel = listOfSmartphones.Skip((pageNumber - 1) * pageSize).Take(pageSize);
             //ViewBag.Pages = Math.Ceiling((double)listOfSmartphones.Count() / pageSize);
 
-            return View(listOfSmartphones.ToList());
+            return View(listOfSmartphones);
         }
         public ActionResult Search(SubmitSearchModel submitModel)
         {
@@ -175,7 +175,7 @@ namespace Technoland.Web.Controllers
                 Votes = x.Votes.Count(),
             });
             
-            return View("ListAll",endResult.ToList());
+            return View("ListAll",endResult);
         }
         public JsonResult GetSmartphoneModelData(string text)
         {
