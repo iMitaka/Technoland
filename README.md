@@ -1,2 +1,2 @@
 # Technoland
-Added Smarthones
+Added Smartphones
