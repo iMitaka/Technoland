@@ -1,7 +1,5 @@
 # Technoland
-(to run this project you need to add Kendo.Mvc.dll in Technoland.Web references)
-
-(*you can download trail version from here http://www.telerik.com/download/aspnet-mvc )
+(This project use trial version of Kendo MVC!)
 
 ....................................................................
 
