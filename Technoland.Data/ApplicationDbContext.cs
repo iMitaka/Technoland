@@ -19,6 +19,7 @@ namespace Technoland.Data
         public IDbSet<Comment> Comments { get; set; }
         public IDbSet<Vote> Votes { get; set; }
         public IDbSet<Manufacturer> Manufacturers { get; set; }
+        public IDbSet<Laptop> Laptops { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

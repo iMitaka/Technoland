@@ -16,6 +16,7 @@ namespace Technoland.Data
         IRepository<Comment> Comments { get; }
 
         IRepository<Vote> Votes { get; }
+        IRepository<Laptop> Laptops { get; }
 
         IRepository<ApplicationUser> ApplicationUsers { get; }
 

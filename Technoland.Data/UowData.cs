@@ -72,5 +72,11 @@ namespace Technoland.Data
         {
             get { return this.GetRepository<ApplicationUser>(); }
         }
+
+
+        public IRepository<Laptop> Laptops
+        {
+            get { return this.GetRepository<Laptop>(); }
+        }
     }
 }

@@ -14,8 +14,11 @@ namespace Technoland.Models
 
         public virtual ApplicationUser VotedBy { get; set; }
 
-        public int SmartphoneId { get; set; }
+        public int? SmartphoneId { get; set; }
 
         public virtual Smartphone Smartphone { get; set; }
+
+        public int? LaptopId { get; set; }
+        public virtual Laptop Laptop { get; set; }
     }
 }

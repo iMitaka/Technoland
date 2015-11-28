@@ -12,12 +12,15 @@ namespace Technoland.Models
 
         public string AuthorId { get; set; }
 
+        public string Content { get; set; }
+
         public virtual ApplicationUser Author { get; set; }
 
-        public int SmartphoneId { get; set; }
+        public int? SmartphoneId { get; set; }
 
         public virtual Smartphone Smartphone { get; set; }
 
-        public string Content { get; set; }
+        public int? LaptopId { get; set; }
+        public virtual Laptop Laptop { get; set; }
     }
 }

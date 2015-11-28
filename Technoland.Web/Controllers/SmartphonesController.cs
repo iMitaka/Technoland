@@ -193,6 +193,7 @@ namespace Technoland.Web.Controllers
         {
             var result = this.Data.Manufacturers
                 .All()
+                .Where(m => m.HasSmartphones == true)
                 .Select(x => new
                 {
                     ManufacturerName = x.Name
