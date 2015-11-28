@@ -41,7 +41,7 @@ namespace Technoland.Web.Controllers
         // GET: SmartphonesAdministration/Create
         public ActionResult Create()
         {
-            ViewBag.ManufacturerId = new SelectList(db.Manufacturers, "Id", "Name");
+            ViewBag.ManufacturerId = new SelectList(db.Manufacturers.Where(m => m.HasSmartphones == true), "Id", "Name");
             return View();
         }
 

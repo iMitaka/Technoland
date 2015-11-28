@@ -1,5 +1,153 @@
 ﻿@model Technoland.Web.Models.LaptopDetailsViewModel
+<h1 class="alert alert-dismissible alert-danger"><strong>@Model.Manufacturer @Model.Model</strong></h1>
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Назад", "ListAll", "Laptop")</li>
+</ol>
 <div class="row">
-    @Model.Manufacturer @Model.Model
+    <div class="col-lg-5">
+        <div>
+            <img class="img-responsive" src="@Model.ImageURL" />
+        </div>
+        <div class="center-block">
+            <a class="btn btn-danger center-block" href="#">Купи @Model.Price лв.</a>
+        </div>
+        <br />
+        <h4><strong>Гласове:</strong></h4>
+        <div>
+            <strong>Гласове:</strong> <div class="label label-primary"><span id="laptop-votes">@Model.Votes</span></div>
+            @if (User.Identity.IsAuthenticated && Model.UserCanVote)
+            {
+                @Ajax.ActionLink("Vote", "Vote", "Laptop", new { id = Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "laptop-votes", HttpMethod = "Post", OnSuccess = "hideVoteButton" }, new { id = "vote-button", @class = "btn label label-info" })
+            }
+        </div>
+        <br />
+        <h3><strong>Коментари:</strong></h3>
+        <div id="Comments">
+            @foreach (var comment in Model.Comments)
+            {
+                @Html.Partial("_CommentPartial", comment)
+            }
+        </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            using (Ajax.BeginForm("PostComment", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.InsertAfter, UpdateTargetId = "Comments", OnFailure = "commentPostFailure" }))
+            {
+                @Html.Hidden("LaptopId", Model.Id)
+                @Html.TextArea("comment")
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Submit comment" />
+            }
+        }
+    </div>
+    <div class="col-lg-7">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><strong>ХАРАКТЕРИСТИКИ:</strong></th>
+                </tr>
+            </thead>
+            <tr>
+                <td>ЦВЯТ</td>
+                <td><strong>@Model.Color</strong></td>
+            </tr>
+            <tr>
+                <td>СЕРИЯ</td>
+                <td><strong>@Model.Model</strong></td>
+            </tr>
+            <tr>
+                <td>ПРОЦЕСОР</td>
+                <td><strong>@Model.CPUManufacturer @Model.CPUModel @Model.CPUFrequency Ghz</strong></td>
+            </tr>
+            <tr>
+                <td>ОПЕРАТИВНА ПАМЕТ</td>
+                <td><strong>@(Model.RAM)GB @Model.RAMMemoryType</strong></td>
+            </tr>
+            <tr>
+                <td>ВИДЕО КАРТА</td>
+                <td><strong>@Model.VideoCardManufacturer @Model.VideoCardModel @Model.VideoMemory GB</strong></td>
+            </tr>
+            <tr>
+                <td>IPS ЕКРАН</td>
+                <td>
+                    @if (@Model.IPS)
+                    {
+                        <span class="glyphicon glyphicon-ok text-success"></span>
+                    }
+                    else
+                    {
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>КАМЕРА</td>
+                <td>
+                    @if (@Model.Camera)
+                    {
+                        <span class="glyphicon glyphicon-ok text-success"></span>
+                    }
+                    else
+                    {
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>ПАМЕТ</td>
+                <td><strong>@Model.HDDSize GB</strong></td>
+            </tr>
+            <tr>
+                <td>SSD</td>
+                <td>
+                    @if (@Model.SSD)
+                    {
+                        <span class="glyphicon glyphicon-ok text-success"></span>
+                    }
+                    else
+                    {
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>СВЪРЗАНОСТ</td>
+                <td><strong>@Model.ConnectionsInformation</strong></td>
+            </tr>
+            <tr>
+                <td>ОПЕРАЦИОННА СИСТЕМА</td>
+                <td><strong>@Model.OS</strong></td>
+            </tr>
+            <tr>
+                <td>БАТЕРИЯ</td>
+                <td><strong>@Model.BatteryInformation</strong></td>
+            </tr>
+            <tr>
+                <td>ИНТЕРФЕЙСИ</td>
+                <td>
+                        @{
+                            var splited = @Model.Interfaces.Split(',');
+                        }
+                        @foreach (var item in @splited)
+                        {
+                        <div><span class="glyphicon glyphicon-check"></span><strong> @item</strong></div>
+                        }
+                </td>
+            </tr>
+            <tbody></tbody>
+        </table>
+    </div>
 </div>
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script>
+        function commentPostFailure() {
+            alert("Error");
+        }
+
+        function hideVoteButton() {
+            $("#vote-button").hide();
+        }
+    </script>
+}
+
 

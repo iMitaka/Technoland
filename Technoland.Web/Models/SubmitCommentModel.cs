@@ -13,7 +13,7 @@ namespace LaptopSystem.Web.Models
         [ShouldNotContainEmail]
         public string Comment { get; set; }
 
-        [Required]
         public int SmartphoneId { get; set; }
+        public int LaptopId { get; set; }
     }
 }

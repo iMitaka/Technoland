@@ -48,7 +48,7 @@ namespace Technoland.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name")] Manufacturer manufacturer)
+        public ActionResult Create([Bind(Include = "Id,Name,HasLaptops,HasSmartphones")] Manufacturer manufacturer)
         {
             if (db.Manufacturers.Any(x => x.Name == manufacturer.Name))
             {
@@ -85,7 +85,7 @@ namespace Technoland.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name")] Manufacturer manufacturer)
+        public ActionResult Edit([Bind(Include = "Id,Name,HasLaptops,HasSmartphones")] Manufacturer manufacturer)
         {
             if (db.Manufacturers.Any(x => x.Name == manufacturer.Name))
             {
